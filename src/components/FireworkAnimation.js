@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Fireworks } from 'fireworks-js';
-import celebrationAudio from '../assets/Chellakuttiye.mp3'; // Ensure your audio file is added here
+import celebrationAudio from '../assets/Venkat.mp3';
 import '../index.css';
 
 const FireworkAnimation = () => {
@@ -8,19 +8,17 @@ const FireworkAnimation = () => {
   const [showName, setShowName] = useState(false);
   const audioRef = useRef(new Audio(celebrationAudio));
   const fireworksInstance = useRef(null);
-  const [fireworksStarted, setFireworksStarted] = useState(false); // State to track if fireworks have started
+  const [fireworksStarted, setFireworksStarted] = useState(false);
 
   useEffect(() => {
-    // Prevent scrolling
-    document.body.style.overflow = fireworksStarted ? 'hidden' : ''; // Toggle scrollbars
+    document.body.style.overflow = fireworksStarted ? 'hidden' : '';
 
     if (fireworksRef.current && fireworksStarted) {
-      // Initialize fireworks
       fireworksInstance.current = new Fireworks(fireworksRef.current, {
         speed: 2,
         acceleration: 1.05,
         friction: 0.95,
-        gravity: -0.1, // Adjust gravity to keep fireworks upward
+        gravity: -0.1,
         particles: 120,
         trace: 3,
         explosion: 5,
@@ -44,69 +42,77 @@ const FireworkAnimation = () => {
         },
       });
 
-      // Start fireworks and set interval for continuous firing
       fireworksInstance.current.start();
-      const intervalId = setInterval(() => fireworksInstance.current.start(), 1500); // Fire every 1.5 seconds
+      const intervalId = setInterval(() => fireworksInstance.current.start(), 1500);
 
-      // Show "Roja" after a delay
       const timer = setTimeout(() => {
         setShowName(true);
-      }, 4000); // 4 seconds delay after fireworks start
+      }, 4000);
 
       return () => {
         fireworksInstance.current.stop();
-        audioRef.current.pause(); // Pause audio on unmount
         clearTimeout(timer);
-        clearInterval(intervalId); // Cleanup interval
-        document.body.style.overflow = ''; // Restore scrollbars on unmount
+        clearInterval(intervalId);
+        document.body.style.overflow = '';
       };
     }
-  }, [fireworksStarted]); // Add fireworksStarted to the dependency array
+  }, [fireworksStarted]);
+
+  useEffect(() => {
+    if (fireworksStarted) {
+      audioRef.current.play().catch((error) => {
+        console.error("Error playing audio:", error);
+      });
+    } else {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  }, [fireworksStarted]);
 
   const handleStart = () => {
-    setFireworksStarted(true); // Set the state to start fireworks on button click
-    audioRef.current.play().catch((error) => {
-      console.error("Error playing audio:", error);
-    }); // Play audio on button click
+    setFireworksStarted(true);
   };
 
   return (
     <div
       ref={fireworksRef}
-      className="fixed inset-0 flex items-center justify-center bg-black h-screen" // Set to black background
-      style={{ height: '100vh' }} // Explicitly set height to 100vh
+      className="fixed inset-0 flex items-center justify-center bg-black h-screen"
     >
       {!fireworksStarted ? (
-        <button
-        onClick={handleStart}
-        style={{
-          color: '#FFD700', // Text color
-          fontSize: '3rem', // Font size
-          fontWeight: 'bold', // Font weight
-          textAlign: 'center', // Center text alignment
-          borderRadius: '2rem', // Rounded corners
-          padding: '1rem 2rem', // Padding
-          border: 'none', // Remove border
-          background: 'linear-gradient(135deg, #ffbb00 0%, #ff007f 100%)', // Gradient background
-          boxShadow: '0 8px 20px rgba(255, 183, 0, 0.4)', // Shadow for depth
-          transition: 'transform 0.2s, box-shadow 0.2s', // Transition effects
-        }}
-        className="absolute hover:scale-105 hover:shadow-lg rounded-lg"
-      >
-        Touch pannu ...!!
-      </button>
-      
+        <div className="flex items-center justify-center">
+          <button
+            onClick={handleStart}
+            aria-label="Start Fireworks"
+            className="hover:scale-105 hover:shadow-lg rounded-lg"
+            style={{
+              color: '#FFD700',
+              fontSize: '4vw', // Responsive font size for mobile
+              fontWeight: 'bold',
+              textAlign: 'center',
+              display: 'flex',
+              alignItems: 'center',
+              borderRadius: '1rem',
+              padding: '1rem 1.5rem', // Padding for better clickability on mobile
+              border: 'none',
+              background: 'linear-gradient(135deg, #ffbb00 0%, #ff007f 100%)',
+              boxShadow: '0 8px 20px rgba(255, 183, 0, 0.4)',
+              transition: 'transform 0.2s, box-shadow 0.2s',
+            }}
+          >
+            Touch pannu ...!!
+          </button>
+        </div>
       ) : (
         <>
           {showName && (
             <h1
-            style={{ color: '#FFD700', fontSize: '4rem', fontWeight: 'bold', textAlign: 'center' }}
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-7xl font-bold z-10"
-          >
-            Ro<span className="heart">❤️</span>ja ....!!
-          </h1>
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold z-10"
+              style={{ color: '#FFD700', fontSize: '15vw', fontWeight: 'bold', textAlign: 'center' }} // Responsive font size for name
+            >
+              Ro<span className="heart">❤️</span>ja ....!!
+            </h1>
           )}
-          <canvas className="absolute inset-0" ref={fireworksRef} style={{ height: '100vh' }} /> {/* Single canvas for fireworks */}
+          <canvas className="absolute inset-0" ref={fireworksRef} style={{ height: '100vh' }} />
         </>
       )}
     </div>
