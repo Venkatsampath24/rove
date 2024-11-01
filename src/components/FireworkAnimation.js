@@ -107,9 +107,9 @@ const FireworkAnimation = () => {
           {showName && (
             <h1
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold z-10"
-              style={{ color: '#FFD700', fontSize: '15vw', fontWeight: 'bold', textAlign: 'center' }} // Responsive font size for name
+              style={{ color: '#FFD700', fontSize: '8vw', fontWeight: 'bold', textAlign: 'center' }} // Responsive font size for name
             >
-              Ro<span className="heart">❤️</span>ja ....!!
+              Ro<span className="heart">❤️</span>ja 🥰....!!
             </h1>
           )}
           <canvas className="absolute inset-0" ref={fireworksRef} style={{ height: '100vh' }} />
