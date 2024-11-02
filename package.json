@@ -11,6 +11,7 @@
     "react-dom": "^18.3.1",
     "react-fireworks": "^1.0.4",
     "react-scripts": "5.0.1",
+    "roja": "file:",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

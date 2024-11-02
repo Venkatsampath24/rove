@@ -11,6 +11,7 @@ const FireworkAnimation = () => {
   const [fireworksStarted, setFireworksStarted] = useState(false);
 
   useEffect(() => {
+    // Disable scrolling when fireworks start
     document.body.style.overflow = fireworksStarted ? 'hidden' : '';
 
     if (fireworksRef.current && fireworksStarted) {
@@ -24,22 +25,10 @@ const FireworkAnimation = () => {
         explosion: 5,
         intensity: 30,
         flickering: 50,
-        lineWidth: {
-          min: 1,
-          max: 3,
-        },
-        hue: {
-          min: 0,
-          max: 360,
-        },
-        brightness: {
-          min: 50,
-          max: 80,
-        },
-        decay: {
-          min: 0.015,
-          max: 0.03,
-        },
+        lineWidth: { min: 1, max: 3 },
+        hue: { min: 0, max: 360 },
+        brightness: { min: 50, max: 80 },
+        decay: { min: 0.015, max: 0.03 },
       });
 
       fireworksInstance.current.start();
@@ -76,7 +65,7 @@ const FireworkAnimation = () => {
   return (
     <div
       ref={fireworksRef}
-      className="fixed inset-0 flex items-center justify-center bg-black h-screen"
+      className="fixed inset-0 flex items-center justify-center bg-black h-screen w-screen"
     >
       {!fireworksStarted ? (
         <div className="flex items-center justify-center">
@@ -92,7 +81,7 @@ const FireworkAnimation = () => {
               display: 'flex',
               alignItems: 'center',
               borderRadius: '1rem',
-              padding: '1rem 1.5rem', // Padding for better clickability on mobile
+              padding: '1rem 1.5rem',
               border: 'none',
               background: 'linear-gradient(135deg, #ffbb00 0%, #ff007f 100%)',
               boxShadow: '0 8px 20px rgba(255, 183, 0, 0.4)',
@@ -107,12 +96,12 @@ const FireworkAnimation = () => {
           {showName && (
             <h1
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold z-10"
-              style={{ color: '#FFD700', fontSize: '8vw', fontWeight: 'bold', textAlign: 'center' }} // Responsive font size for name
+              style={{ color: '#FFD700', fontSize: '8vw', fontWeight: 'bold', textAlign: 'center' }}
             >
               Ro<span className="heart">❤️</span>ja 🥰....!!
             </h1>
           )}
-          <canvas className="absolute inset-0" ref={fireworksRef} style={{ height: '100vh' }} />
+          <canvas className="absolute inset-0" ref={fireworksRef} style={{ height: '100vh', width: '100vw' }} />
         </>
       )}
     </div>
