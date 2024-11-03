@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Fireworks } from 'fireworks-js';
+import TypingEffect from 'react-typing-effect';
 import celebrationAudio from '../assets/love.mp3';
 import dancingrose from '../assets/myrose.gif';
 import '../index.css';
@@ -12,24 +13,17 @@ const FireworkAnimation = () => {
   const [fireworksStarted, setFireworksStarted] = useState(false);
 
   useEffect(() => {
-    // Disable scrolling when fireworks start
     document.body.style.overflow = fireworksStarted ? 'hidden' : '';
 
     if (fireworksRef.current && fireworksStarted) {
       fireworksInstance.current = new Fireworks(fireworksRef.current, {
         speed: 2,
-        acceleration: 1.05,
-        friction: 0.95,
-        gravity: -0.1,
         particles: 120,
-        trace: 3,
-        explosion: 5,
         intensity: 30,
         flickering: 50,
         lineWidth: { min: 1, max: 3 },
         hue: { min: 0, max: 360 },
         brightness: { min: 50, max: 80 },
-        decay: { min: 0.015, max: 0.03 },
       });
 
       fireworksInstance.current.start();
@@ -76,14 +70,11 @@ const FireworkAnimation = () => {
             className="hover:scale-105 hover:shadow-lg rounded-lg"
             style={{
               color: '#FFD700',
-              fontSize: '4vw', // Responsive font size for mobile
+              fontSize: '4vw',
               fontWeight: 'bold',
               textAlign: 'center',
-              display: 'flex',
-              alignItems: 'center',
               borderRadius: '1rem',
               padding: '1rem 1.5rem',
-              border: 'none',
               background: 'green',
               boxShadow: '0 8px 20px rgba(255, 183, 0, 0.4)',
               transition: 'transform 0.2s, box-shadow 0.2s',
@@ -96,24 +87,36 @@ const FireworkAnimation = () => {
         <>
           {showName && (
             <h1
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold z-10"
-            style={{ color: '#FF4545', fontSize: '8vw', fontWeight: 'bold', textAlign: 'center' }}
-          >
-            R <span className="heart">❤️</span> 
-            <span style={{ display: 'inline-flex', alignItems: 'center' }}>
-              ja.L
-              <img 
-                src={dancingrose} 
-                alt="Dancing Rose" 
-                style={{ width: '10vw', height: 'auto', marginLeft: '0.5rem', verticalAlign: 'middle' }} 
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold z-10"
+              style={{ color: '#FF4545', fontSize: '8vw', fontWeight: 'bold', textAlign: 'center' }}
+            >
+              <TypingEffect
+                text={[
+                  "R ❤️ ja.L",
+                  "ನಮ್ಮ ಬದುಕನ್ನು ಬೆಳಗಿಸುವ ಸುಂದರ ಜ್ಯೋತಿ ನೀನು😍....!!",
+                  "Always by your side, this is Venkat ❤️---cherishing and protecting you forever 🥰😉"
+                ]}
+                speed={100}
+                eraseDelay={3000}
+                displayTextRenderer={(text, i) => (
+                  <span>
+                    {text.split("").map((char, index) => (
+                      <span key={index}>{char}</span>
+                    ))}
+                    <img
+                      src={dancingrose}
+                      alt="Dancing Rose"
+                      style={{
+                        width: '10vw',
+                        height: 'auto',
+                        marginLeft: '0.5rem',
+                        verticalAlign: 'middle'
+                      }}
+                    />
+                  </span>
+                )}
               />
-            </span>
-            ನಮ್ಮ ಬದುಕನ್ನು ಬೆಳಗಿಸುವ ಸುಂದರ ಜ್ಯೋತಿ ನೀನು<span className="float">😍</span>....!!
-            <h7 style={{ color: '#00712D' }}>
-              Always by your side, this is Venkat<span className="heart">❤️</span>---cherishing and protecting you forever<span className="float">🥰😉</span>
-            </h7>
-          </h1>
-          
+            </h1>
           )}
 
           <style>
