@@ -83,12 +83,12 @@ const FireworkAnimation = () => {
               borderRadius: '1rem',
               padding: '1rem 1.5rem',
               border: 'none',
-              background: 'linear-gradient(135deg, #ffbb00 0%, #ff007f 100%)',
+              background: 'green',
               boxShadow: '0 8px 20px rgba(255, 183, 0, 0.4)',
               transition: 'transform 0.2s, box-shadow 0.2s',
             }}
           >
-            Touch pannu ...!!
+            Touch pannu da ...!!
           </button>
         </div>
       ) : (
@@ -104,6 +104,24 @@ const FireworkAnimation = () => {
           <canvas className="absolute inset-0" ref={fireworksRef} style={{ height: '100vh', width: '100vw' }} />
         </>
       )}
+
+      <style>
+        {`
+          .heart {
+            display: inline-block;
+            animation: beat 0.8s infinite alternate;
+          }
+
+          @keyframes beat {
+            from {
+              transform: scale(1);
+            }
+            to {
+              transform: scale(1.2);
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };
