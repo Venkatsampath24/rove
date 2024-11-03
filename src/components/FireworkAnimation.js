@@ -86,37 +86,45 @@ const FireworkAnimation = () => {
       ) : (
         <>
           {showName && (
-            <h1
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold z-10"
-              style={{ color: '#FF4545', fontSize: '8vw', fontWeight: 'bold', textAlign: 'center' }}
-            >
-              <TypingEffect
-                text={[
-                  "R ❤️ ja.L",
-                  "ನಮ್ಮ ಬದುಕನ್ನು ಬೆಳಗಿಸುವ ಸುಂದರ ಜ್ಯೋತಿ ನೀನು😍....!!",
-                  "Always by your side, this is Venkat ❤️---cherishing and protecting you forever 🥰😉"
-                ]}
-                speed={100}
-                eraseDelay={3000}
-                displayTextRenderer={(text, i) => (
-                  <span>
-                    {text.split("").map((char, index) => (
-                      <span key={index}>{char}</span>
-                    ))}
-                    <img
-                      src={dancingrose}
-                      alt="Dancing Rose"
-                      style={{
-                        width: '10vw',
-                        height: 'auto',
-                        marginLeft: '0.5rem',
-                        verticalAlign: 'middle'
-                      }}
-                    />
-                  </span>
-                )}
-              />
-            </h1>
+            <>
+              <h2
+                className="absolute top-1/4 left-1/2 transform -translate-x-1/2 font-bold z-10"
+                style={{ color: 'white', fontSize: '5vw', textAlign: 'center' }}
+              >
+                Watch until the rose finishes typing... ❤️
+              </h2>
+              <h1
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold z-10"
+                style={{ color: 'green', fontSize: '8vw', fontWeight: 'bold', textAlign: 'center' }}
+              >
+                <TypingEffect
+                  text={[
+                    "R ❤️ ja.L",
+                    "ನಮ್ಮ ಬದುಕನ್ನು ಬೆಳಗಿಸುವ ಸುಂದರ ಜ್ಯೋತಿ ನೀನು😍....!!",
+                    "Always by your side, this is Venkat ❤️---cherishing and protecting you forever 🥰😉"
+                  ]}
+                  speed={200}
+                  eraseDelay={100}
+                  displayTextRenderer={(text, i) => (
+                    <span>
+                      {text.split("").map((char, index) => (
+                        <span key={index}>{char}</span>
+                      ))}
+                      <img
+                        src={dancingrose}
+                        alt="Dancing Rose"
+                        style={{
+                          width: '10vw',
+                          height: 'auto',
+                          marginLeft: '0.5rem',
+                          verticalAlign: 'middle'
+                        }}
+                      />
+                    </span>
+                  )}
+                />
+              </h1>
+            </>
           )}
 
           <style>
