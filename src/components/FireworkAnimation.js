@@ -98,30 +98,45 @@ const FireworkAnimation = () => {
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold z-10"
               style={{ color: '#FFD700', fontSize: '8vw', fontWeight: 'bold', textAlign: 'center' }}
             >
-              R<span className="heart">❤️</span>ja 🥰 ಸುಂದರವಾದ ಬೆಂಕಿ😍....!!
+              R<span className="heart">  ❤️  </span>ja <span className="float">🥰</span> ಸುಂದರವಾದ ಬೆಂಕಿ<span className="float">😍</span>....!!
             </h1>
           )}
+
+          <style>
+            {`
+              .heart {
+                display: inline-block;
+                animation: beat 0.8s infinite alternate;
+              }
+
+              .float {
+                display: inline-block;
+                animation: float 3s ease-in-out infinite;
+              }
+
+              @keyframes beat {
+                from {
+                  transform: scale(1);
+                }
+                to {
+                  transform: scale(1.2);
+                }
+              }
+
+              @keyframes float {
+                0%, 100% {
+                  transform: translateY(0);
+                }
+                50% {
+                  transform: translateY(-10px);
+                }
+              }
+            `}
+          </style>
+
           <canvas className="absolute inset-0" ref={fireworksRef} style={{ height: '100vh', width: '100vw' }} />
         </>
       )}
-
-      <style>
-        {`
-          .heart {
-            display: inline-block;
-            animation: beat 0.8s infinite alternate;
-          }
-
-          @keyframes beat {
-            from {
-              transform: scale(1);
-            }
-            to {
-              transform: scale(1.2);
-            }
-          }
-        `}
-      </style>
     </div>
   );
 };
