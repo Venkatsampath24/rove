@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Fireworks } from 'fireworks-js';
 import celebrationAudio from '../assets/Venkat.mp3';
+import dancingrose from '../assets/myrose.gif';
 import '../index.css';
 
 const FireworkAnimation = () => {
@@ -95,11 +96,24 @@ const FireworkAnimation = () => {
         <>
           {showName && (
             <h1
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold z-10"
-              style={{ color: '#FF4545', fontSize: '8vw', fontWeight: 'bold', textAlign: 'center' }}
-            >
-              R <span className="heart">  ❤️  </span> ja.L<span className="float">🥰</span> ನನ್ನ ಬದುಕನ್ನು ಬೆಳಗಿಸುವ ಸುಂದರ ಜ್ಯೋತಿ ನೀನು<span className="float">😍</span>....!! <h7 style={{color:'#00712D'}}> Always by your side, this is Venkat<span className="heart">  ❤️  </span>---cherishing and protecting you forever<span className="float">🥰😉</span> </h7>
-            </h1>
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold z-10"
+            style={{ color: '#FF4545', fontSize: '8vw', fontWeight: 'bold', textAlign: 'center' }}
+          >
+            R <span className="heart">❤️</span> 
+            <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+              ja.L
+              <img 
+                src={dancingrose} 
+                alt="Dancing Rose" 
+                style={{ width: '10vw', height: 'auto', marginLeft: '0.5rem', verticalAlign: 'middle' }} 
+              />
+            </span>
+            ನಮ್ಮ ಬದುಕನ್ನು ಬೆಳಗಿಸುವ ಸುಂದರ ಜ್ಯೋತಿ ನೀನು<span className="float">😍</span>....!!
+            <h7 style={{ color: '#00712D' }}>
+              Always by your side, this is Venkat<span className="heart">❤️</span>---cherishing and protecting you forever<span className="float">🥰😉</span>
+            </h7>
+          </h1>
+          
           )}
 
           <style>
