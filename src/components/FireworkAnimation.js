@@ -98,7 +98,7 @@ const FireworkAnimation = () => {
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold z-10"
               style={{ color: '#FF4545', fontSize: '8vw', fontWeight: 'bold', textAlign: 'center' }}
             >
-              R<span className="heart">  ❤️  </span>ja <span className="float">🥰</span> ಸುಂದರವಾದ ಬೆಂಕಿ<span className="float">😍</span>....!! <h7 style={{color:'#00712D'}}>by venkat...<span className="float">🥰😉</span> </h7>
+              R <span className="heart">  ❤️  </span> ja <span className="float">🥰</span> ಸುಂದರವಾದ ಬೆಂಕಿ<span className="float">😍</span>....!! <h7 style={{color:'#00712D'}}>by venkat...<span className="float">🥰😉</span> </h7>
             </h1>
           )}
 
