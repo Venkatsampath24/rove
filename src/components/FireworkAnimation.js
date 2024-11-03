@@ -98,7 +98,7 @@ const FireworkAnimation = () => {
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold z-10"
               style={{ color: '#FFD700', fontSize: '8vw', fontWeight: 'bold', textAlign: 'center' }}
             >
-              R<span className="heart">❤️</span>ja 🥰....!!
+              R<span className="heart">❤️</span>ja 🥰 ಸುಂದರವಾದ ಬೆಂಕಿ😍....!!
             </h1>
           )}
           <canvas className="absolute inset-0" ref={fireworksRef} style={{ height: '100vh', width: '100vw' }} />
