@@ -80,7 +80,7 @@ const FireworkAnimation = () => {
               transition: 'transform 0.2s, box-shadow 0.2s',
             }}
           >
-            Touch pannu da ...!!
+            Click Here ...!!
           </button>
         </div>
       ) : (
@@ -99,11 +99,11 @@ const FireworkAnimation = () => {
               >
                 <TypingEffect
                   text={[
-                    "R ❤️ ja.L",
+                    "S ❤️ wmiya",
                     "ನಮ್ಮ ಬದುಕನ್ನು ಬೆಳಗಿಸುವ ಸುಂದರ ಜ್ಯೋತಿ ನೀನು😍....!!",
-                    "Always by your side, this is Venkat ❤️---cherishing and protecting you forever 🥰😉"
+                    "Always by your side, this is Goutham ❤️---cherishing and protecting you forever 🥰😉"
                   ]}
-                  speed={200}
+                  speed={300}
                   eraseDelay={100}
                   displayTextRenderer={(text, i) => (
                     <span>
